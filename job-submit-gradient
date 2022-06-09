@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH -A p31105               # Allocation
+#SBATCH -p long                # Queue
+#SBATCH -t 168:00:00             # Walltime/duration of the job
+#SBATCH -N 1                    # Number of Nodes
+#SBATCH --mem=1G               # Memory per node in GB needed for a job. Also see --mem-per-cpu
+#SBATCH --ntasks-per-node=4     # Number of Cores (Processors)
+#SBATCH --mail-user=jan.steinkuehler@northwestern.edu  # Designate email address for job communications
+#SBATCH --mail-type=FAIL,END     # Events options are job BEGIN, END, NONE, FAIL, REQUEUE
+#SBATCH --output=$$SLURM_SUBMIT_DIR    # Path for output must already exist
+#SBATCH --error=$SLURM_SUBMIT_DIR>     # Path for errors must already exist
+#SBATCH --job-name="ribo ves agg"       # Name of job
+#SBATCH --constraint=quest10
+
+# unload any modules that carried over from your command line session
+module purge
+
+# add a project directory to your PATH (if needed)
+export PATH=$PATH:/projects/p31105/
+
+# load modules you need to use
+#module load gromacs/2016.3
+#module add gcc/9.2.0
+# A command you actually want to execute:
+
+module load python-anaconda3/2019.10
+source activate readdy
+python3.8 gradient_R1R2.py $1 $2 $3 $4
