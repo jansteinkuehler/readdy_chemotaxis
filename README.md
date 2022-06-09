@@ -4,3 +4,4 @@ Computer code for publication Enzymatically-active bacterial microcompartments f
 * Fig 1D gradient_R1R2.py and gradient-ana-examples-Paper.ipynb
 * Fig 1E,G gradient_R1R2.py and reaction-heatmap-PAPER.ipynb
 
+Prelimiary version subject to change any time until publication.
